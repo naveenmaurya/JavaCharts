@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="Pie Chart Demo"
+>
+	<xc:PieChart title="Browser Market Share - June 2011" height="500"
+		width="500" enableExport="true" displayPieValues="Only percentage"
+		type="Pie"
+		chartValues="#{javascript:new Array(43.58, 28.34, 20.65, 5.07, 1.74, 0.62)}"
+		subTitle="IE market share has fallen by 10% against June 2010"
+		legendPosition="Top"
+	>
+		<xc:this.chartItems><![CDATA[#{javascript:new Array("IE", "Firefox", "Chrome", "Safari", "Opera", "Others")}]]></xc:this.chartItems>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time with time zone]]></xc:this.includeGeneratedDateTime>
+	</xc:PieChart>
+	<xp:br></xp:br>
+	<xc:PieChart title="Browser Market Share - June 2010" height="500"
+		width="500" enableExport="true" displayPieValues="None" type="Pie 3D"
+		chartValues="#{javascript:new Array(0.77, 31.15, 9.24, 52.86, 4.07, 1.91)}"
+		legendPosition="Left"
+	>
+		<xc:this.chartItems><![CDATA[#{javascript:new Array("Others", "Firefox", "Chrome", "IE", "Safari", "Opera")}]]></xc:this.chartItems>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time]]></xc:this.includeGeneratedDateTime>
+	</xc:PieChart>
+	<xp:br></xp:br>
+	<xc:PieChart includeGeneratedDateTime="Date"
+		title="Browser Market Share  - June 2009" height="500" width="500"
+		enableExport="true" displayPieValues="Only percentage" type="Ring"
+		chartValues="#{javascript:new Array(2.80, 30.26, 2.91, 1.08, 3.46, 59.49)}"
+		legendPosition="Bottom"
+	>
+		<xc:this.chartItems><![CDATA[#{javascript:new Array("Chrome", "Firefox", "Safari", "Others", "Opera", "IE")}]]></xc:this.chartItems>
+	</xc:PieChart>
+</xp:view>

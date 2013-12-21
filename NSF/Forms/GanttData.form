@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='65257AD900209E97'>
+<noteinfo noteid='14a' unid='19ADEDD12AD530EF65257AB400429E81' sequence='2'>
+<created><datetime>20121112T173739,53+0530</datetime></created>
+<modified><datetime>20121219T112618,42+0530</datetime></modified>
+<revised><datetime>20121219T112517,53+0530</datetime></revised>
+<lastaccessed><datetime>20121219T112618,42+0530</datetime></lastaccessed>
+<addedtofile><datetime>20121219T112618,42+0530</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Naveen/O=Naveen</name></updatedby>
+<item name='$HTMLCode' sign='true'>
+<rawitemdata type='1'>
+X/8QAAIADwAHAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$TITLE'><text>GanttData</text></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$Info' sign='true'>
+<rawitemdata type='1'>
+hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
+</rawitemdata></item>
+<item name='$Flags'><text/></item>
+<item name='$DesignerVersion'><text>8.5.2</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>GanttData</text></item>
+<item name='SeriesName' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='TaskName' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='StartDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='EndDate' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name='PercentComplete' summary='false'><number>0</number></item>
+<item name='$Fields'><textlist><text>PercentComplete</text><text>EndDate</text><text
+>StartDate</text><text>TaskName</text><text>SeriesName</text></textlist></item>
+<item name='$Body' sign='true'>
+<rawitemdata type='1'>
+gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8OAAEAAApUeXBlOiDdBgAA
+iv/+/1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AHgAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALD/FAAAAAQkAAAAAAAAAAAAAAAAiv9YAIqCAAUAIAIA
+AAAAAAACAQAACgAAAAAAAAAACgAAACkAU2VyaWVzTmFtZQMACQAGABIAU2NoZWR1bGVkQWN0dWFs
+UGVyY2VudCBDb21wbGV0aW9uAN4GAACK/4X/CAABAAAKgQKDBAEAhf8TAAEAAApUYXNrIG5hbWU6
+IADdBgAAiv/+/1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AHgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALD/FAAAAAQAAAAAAAAAAAAAAAAAiv9mAIqA
+AAUAIAIAAAAAAAACAQAACgAAAAAAAAAACAAAADoAVGFza05hbWUDAA4ADwAVAFdyaXRlIFByb3Bv
+c2FsT2J0YWluIEFwcHJvdmFsUmVxdWlyZW1lbnRzIEFuYWx5c2lzYg4BAIQAAAAAAAAAAADeBgAA
+iv+F/wgAAQAACoECgwQBAIX/FAABAAAKU3RhcnQgZGF0ZTog3QYAAPf/9/8kAAEAAIAAAKAFaAEA
+AAAAAAAAAGQAAAAAAAAAAAAAAAAA/v9UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAeAB4AAAAAAAASIADAAAAAAABAgICAQEBAQcEAAAAAAAAAAAAAAAAAAAgLS06sP8UAAAAAACA
+AAAAAAAAAAAAAACK/y4AigAABAAwAgAAAAAAAAABAAAKAAAAAAAAAAAJAAAAAABTdGFydERhdGUA
+0ggBAAAAAADSCAkA////AN4GAAD3/4X/CAABAAAKgQKDBAEAhf8SAAEAAApFbmQgZGF0ZTog3QYA
+APf/9/8kAAEAAIAAAKAFaAEAAAAAAAAAAGQAAAAAAAAAAAAAAAAA/v9UAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAeAB4AAAAAAAASIADAAAAAAABAgICAQEBAQcEAAAAAAAAAAAA
+AAAAAAAgLS06sP8UAAAAAACAAAAAAAAAAAAAAACK/ywAigAABAAwAgAAAAAAAAABAAAKAAAAAAAA
+AAAHAAAAAABFbmREYXRlANIIAQAAAAAA0ggJAP///wDeBgAA9/+F/wgAAQAACoECgwQBAIX/GgAB
+AAAKUGVyY2VudCBDb21wbGV0ZTog3QYAAIr//v9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAeAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACK/zQAigAA
+AwAwAgAAAAAAAAIBAAAKAAAAAAAAAAAPAAAAAABQZXJjZW50Q29tcGxldGUA3gYAAIr/hf8IAAEA
+AAqBAoMEAQCF/wgAAQAACg==
+</rawitemdata></item></note>
+

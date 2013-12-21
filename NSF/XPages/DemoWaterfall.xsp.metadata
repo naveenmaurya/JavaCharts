@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="65257AD900209E97" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="19e" sequence="7" unid="126798B85D7924C165257AB40042DAE3">
+<created><datetime>20121112T174014,11+0530</datetime></created>
+<modified><datetime>20121219T112618,84+0530</datetime></modified>
+<revised><datetime>20121219T112517,46+0530</datetime></revised>
+<lastaccessed><datetime>20121219T112618,84+0530</datetime></lastaccessed>
+<addedtofile><datetime>20121219T112618,84+0530</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Naveen/O=Naveen</name></updatedby>
+<item name="$TITLE"><text>DemoWaterfall.xsp</text></item>
+<item name="$Flags"><text>gC~4K</text></item>
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>DemoWaterfall.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5</text></item>
+
+</note>

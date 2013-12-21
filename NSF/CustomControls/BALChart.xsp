@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:script src="/JavaChartsSSJS.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:table border="0" cellpadding="2" cellspacing="0">
+		<xp:tr>
+			<xp:td>
+				<xp:text escape="false" disableTheme="true">
+					<xp:this.value><![CDATA[#{javascript:"<img src=\"XJFC.xsp?chartID=" + compositeData.chartID + "&type=bal\" />"}]]></xp:this.value>
+				</xp:text>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td rendered="#{javascript:compositeData.enableExport}">
+				<xc:ExportLink type="bal"
+					chartID="#{javascript:compositeData.chartID}"
+				>
+				</xc:ExportLink>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+	<xp:this.beforePageLoad><![CDATA[#{javascript:putDataInSessionScope(compositeData);}]]></xp:this.beforePageLoad>
+</xp:view>

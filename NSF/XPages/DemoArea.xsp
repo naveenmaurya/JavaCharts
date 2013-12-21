@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom" pageTitle="Area Chart Demo"
+>
+	<xc:BALChart includeGeneratedDateTime="Do not show" orientation="Vertical" labelx="Period" labely="Market share in percentage"
+		title="Google Chrome's Market Share" height="500" enableExport="true" width="750" type="Area" displayValues="true" legendPosition="Bottom"
+		gridLineColor="c0c0c0" backgroundColor="ffffff" yAxisTickUnit="Auto-generated" yAxisStartPoint="Auto-generated">
+		<xc:this.chartSeries><![CDATA[#{javascript:@Trim(@Explode(@Repeat("Chrome,", 12), ","))}]]></xc:this.chartSeries>
+		<xc:this.chartValues><![CDATA[#{javascript:@DbLookup(@DbName(), "MiscellaneousData2", "BrowserMarketShareChrome", 3)}]]></xc:this.chartValues>
+		<xc:this.chartCategories><![CDATA[#{javascript:@Word(@DbLookup(@DbName(), "MiscellaneousData2", "BrowserMarketShareChrome", 2), ":", 2)}]]></xc:this.chartCategories>
+	</xc:BALChart>
+</xp:view>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="false">
+	<xp:this.beforeRenderResponse><![CDATA[#{javascript:try {
+	// Check is chart details are present in sessionScope. If not then display XPage and do not execute further.
+	var chartID = context.getUrlParameter("chartID");
+	if (sessionScope.get("title" + chartID) == null) {
+		this.setRendered(true);
+		return;
+	}
+	
+	var xpdf:org.openntf.javacharts.XPDF = new org.openntf.javacharts.XPDF();
+	xpdf.exportToPDF();
+} catch(e) {
+	e.printStackTrace();
+}}]]></xp:this.beforeRenderResponse>
+	<xp:span style="color:rgb(224,0,0)"> Sorry, unable to create PDF!</xp:span>
+	<xp:br></xp:br>
+	<xp:br></xp:br>
+	Try to refresh the page on which chart was shown and then try again to
+	export to PDF.
+	<xp:br></xp:br>
+	<xp:br></xp:br>
+	<a href="javascript:window.close()">Close this window.</a>
+</xp:view>

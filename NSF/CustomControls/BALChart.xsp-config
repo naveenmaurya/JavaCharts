@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://www.ibm.com/xsp/custom
+		</namespace-uri>
+    <default-prefix>xc</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <display-name>Bar-Area-Line Chart</display-name>
+    <component-type>BALChart</component-type>
+    <composite-name>BALChart</composite-name>
+    <composite-file>/BALChart.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>Java Charts</category>
+        <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
+&lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt;&#xd;
+    &lt;table cellspacing="0" cellpadding="3" border="0"&gt;&#xd;
+        &lt;tr&gt;&#xd;
+            &lt;td align="right"&gt;&#xd;
+                &lt;font size="4"&gt;&lt;b&gt;Bar-Area-Line Chart Custom Control&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;&#xd;
+                &lt;font size="3"&gt;@uthor: &lt;u&gt;Naveen Maurya&lt;/u&gt;&lt;br/&gt;&#xd;
+		javacharts.openntf.org&lt;/font&gt;&#xd;
+            &lt;/td&gt;&#xd;
+        &lt;/tr&gt;&#xd;
+    &lt;/table&gt;&#xd;
+&lt;/xp:view&gt;</render-markup>
+      </designer-extension>
+    </composite-extension>
+    <description>Bar, area and line charts</description>
+    <property>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+      <display-name>Title</display-name>
+      <description>Title for the chart</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>width</property-name>
+      <property-class>int</property-class>
+      <display-name>Width</display-name>
+      <description>Width of the chart</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>height</property-name>
+      <property-class>int</property-class>
+      <display-name>Height</display-name>
+      <description>Height of the chart</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>includeGeneratedDateTime</property-name>
+      <property-class>string</property-class>
+      <display-name>Include generated date time</display-name>
+      <property-extension>
+        <designer-extension>
+          <default-value>Date &amp; time</default-value>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Date&#xd;
+Date &amp; time&#xd;
+Date &amp; time with time zone&#xd;
+Do not show</editor-parameter>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Display the date and time on which this chart was generated. You can choose either to display only date or date with time ot hide it completely.</description>
+    </property>
+    <property>
+      <property-name>chartCategories</property-name>
+      <property-class>java.lang.Object</property-class>
+      <display-name>Categories</display-name>
+      <property-extension>
+        <collection-property>false</collection-property>
+        <required>true</required>
+      </property-extension>
+      <description>Categories which need to be included in the chart. These items are displayed in the legend of the chart.&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: The number of elements in "chartCategories", "chartValues" and "chartSeries" should be same.</description>
+    </property>
+    <property>
+      <property-name>chartValues</property-name>
+      <property-class>java.lang.Object</property-class>
+      <display-name>Values</display-name>
+      <property-extension>
+        <collection-property>false</collection-property>
+        <required>true</required>
+      </property-extension>
+      <description>Series for each of the categories defined in the property “chartCategories”. These values are displayed in the X-axis of the chart.&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: The number of elements in "chartCategories", "chartValues" and "chartSeries" should be same.</description>
+    </property>
+    <property>
+      <property-name>chartSeries</property-name>
+      <property-class>java.lang.Object</property-class>
+      <display-name>Series</display-name>
+      <description>Values for each of the series and categories defined in the properties “chartSeries” &amp; “chartCategories” at the corresponding positions.&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: The number of elements in "chartCategories", "chartValues" and "chartSeries" should be same.</description>
+      <property-extension>
+        <collection-property>false</collection-property>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>type</property-name>
+      <property-class>string</property-class>
+      <display-name>Chart type</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Area&#xd;
+Bar&#xd;
+Bar 3D&#xd;
+Bar Layered&#xd;
+Line&#xd;
+Line 3D&#xd;
+Stacked Area&#xd;
+Stacked Bar&#xd;
+Waterfall</editor-parameter>
+          <default-value>Bar</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Type of the chart to be displayed. </description>
+    </property>
+    <property>
+      <property-name>orientation</property-name>
+      <property-class>string</property-class>
+      <display-name>Orientation</display-name>
+      <description>Orientation of the chart. </description>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Horizontal&#xd;
+Vertical</editor-parameter>
+          <default-value>Horizontal</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>labelx</property-name>
+      <property-class>string</property-class>
+      <display-name>X-Axis Label</display-name>
+      <description>Label to be shown on the X-axis.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>labely</property-name>
+      <property-class>string</property-class>
+      <display-name>Y-Axis Label</display-name>
+      <description>Label to be shown on the Y-axis.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>enableExport</property-name>
+      <property-class>boolean</property-class>
+      <display-name>Enable export</display-name>
+      <description>Whether links to export the chart to PDF should be visible. If set to true then links will be visible else it won’t.</description>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>subTitle</property-name>
+      <property-class>string</property-class>
+      <display-name>Sub title</display-name>
+      <description>A short description of the chart, appears below the title.</description>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>displayValues</property-name>
+      <property-class>boolean</property-class>
+      <display-name>Display values</display-name>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Whether or not to display the values in the chart.</description>
+    </property>
+    <property>
+      <property-name>legendPosition</property-name>
+      <property-class>string</property-class>
+      <display-name>Legend position</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Bottom&#xd;
+Left&#xd;
+Right&#xd;
+Top&#xd;
+Hide Legend</editor-parameter>
+          <default-value>Bottom</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Position of the legend in the chart. It can be placed at bottom, left, right, top or can be hidden.</description>
+    </property>
+    <property>
+      <property-name>backgroundColor</property-name>
+      <property-class>string</property-class>
+      <display-name>Background color</display-name>
+      <description>Background color of the chart. It needs to be expressed in hexadecimal form. For e.g. FFFFFF.&#xd;
+&#xd;
+If the property of "backgroundImage" is set then this property will not have any effect.</description>
+      <property-extension>
+        <required>false</required>
+        <designer-extension>
+          <default-value>ffffff</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>gridLineColor</property-name>
+      <property-class>string</property-class>
+      <display-name>Grid line color</display-name>
+      <description>Grid line color of the chart. It needs to be expressed in hexadecimal form. For e.g. FFFFFF.</description>
+      <property-extension>
+        <required>true</required>
+        <designer-extension>
+          <default-value>c0c0c0</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>yAxisTickUnit</property-name>
+      <property-class>string</property-class>
+      <display-name>Y-axis tick unit</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Auto-generated</editor-parameter>
+          <default-value>Auto-generated</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Unit after which ticks would be generated on the Y-Axis. &#xd;
+&#xd;
+For e.g. If the value is set to "5" then ticks on Y-Axis would be "0-5-10-15-20 and so on". Set the value to "Auto-generated" if you want JFreeChart to determine the tick units.</description>
+    </property>
+    <property>
+      <property-name>backgroundImage</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.ImagePicker</editor>
+        </designer-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Select the background image to be displayed in chart.&#xd;
+&#xd;
+If this property is set then "backgroundColor" property will not have any effect.</description>
+      <display-name>Background Image</display-name>
+    </property>
+    <property>
+      <property-name>backgroundImageAlignment</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Center&#xd;
+East&#xd;
+North&#xd;
+North-East&#xd;
+North-West&#xd;
+South&#xd;
+South-East&#xd;
+South-West&#xd;
+West</editor-parameter>
+          <default-value/>
+          <visible/>
+          <validation-formula/>
+        </designer-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Select where you want the background image to be aligned.&#xd;
+&#xd;
+This property will not have any effect if "backgroundImage" property is not set.</description>
+      <display-name>Background Image Alignment</display-name>
+    </property>
+    <property>
+      <property-name>backgroundImageFit</property-name>
+      <property-class>string</property-class>
+      <description>Select how you want the background image to be fit on the chart.&#xd;
+&#xd;
+This property will not have any effect if "backgroundImage" property is not set.</description>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Do not fit&#xd;
+Fit entire chart&#xd;
+Fit horizontally&#xd;
+Fit vertically</editor-parameter>
+          <default-value/>
+          <visible/>
+        </designer-extension>
+        <required>false</required>
+      </property-extension>
+      <display-name>Background Image Fit</display-name>
+    </property>
+    <property>
+      <property-name>yAxisStartPoint</property-name>
+      <property-class>string</property-class>
+      <display-name>Y-axis start point</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Auto-generated</editor-parameter>
+          <default-value>Auto-generated</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>The number from which the Y-axis should start.&#xd;
+&#xd;
+For e.g. Set the value to "50" so that Y-axis starts from there. Set it to "Auto-generated" so that JFreeChart will decide that.</description>
+    </property>
+  </composite-component>
+</faces-config>

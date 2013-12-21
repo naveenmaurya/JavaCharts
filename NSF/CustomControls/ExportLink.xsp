@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" dojoTheme="true">
+	<xp:this.resources>
+		<xp:dojoModule name="dijit.form.DropDownButton"></xp:dojoModule>
+		<xp:dojoModule name="dijit.Menu"></xp:dojoModule>
+		<xp:dojoModule name="dijit.MenuItem"></xp:dojoModule>
+		<xp:dojoModule name="dijit.form.Button"></xp:dojoModule>
+		<xp:script src="/JavaChartsCSJS.js" clientSide="true"></xp:script>
+	</xp:this.resources>
+	<xp:div dojoType="dijit.form.Button" title="Download chart to PC" style="float: left">
+		<xp:this.dojoAttributes>
+			<xp:dojoAttribute name="label" value="Download"></xp:dojoAttribute>
+			<xp:dojoAttribute name="onClick">
+				<xp:this.value><![CDATA[#{javascript:"window.open(\"XJFC.xsp?chartID=" + compositeData.chartID + "&type=" + compositeData.type + "&download=true\")"}]]></xp:this.value>
+			</xp:dojoAttribute>
+			<xp:dojoAttribute name="iconClass" value="dijitIconSave"></xp:dojoAttribute>
+		</xp:this.dojoAttributes>
+	</xp:div>
+	<xp:div dojoType="dijit.form.DropDownButton" style="float: right">
+		<xp:this.dojoAttributes>
+			<xp:dojoAttribute name="label" value="Export to PDF"></xp:dojoAttribute>
+			<xp:dojoAttribute name="iconClass" value="dijitIconChart"></xp:dojoAttribute>
+		</xp:this.dojoAttributes>
+		<xp:div dojoType="dijit.Menu">
+			<xp:div dojoType="dijit.MenuItem">
+				<xp:this.dojoAttributes>
+					<xp:dojoAttribute name="label" value="A4 - Portrait"></xp:dojoAttribute>
+					<xp:dojoAttribute name="onClick">
+						<xp:this.value><![CDATA[#{javascript:"exportChartToPDF(\"A4P\", " + sessionScope.get("width" + compositeData.chartID) + ", " + sessionScope.get("height" + compositeData.chartID) + ", \"" + compositeData.type + "\", \"" + compositeData.chartID + "\")"}]]></xp:this.value>
+					</xp:dojoAttribute>
+				</xp:this.dojoAttributes>
+			</xp:div>
+			<xp:div dojoType="dijit.MenuItem">
+				<xp:this.dojoAttributes>
+					<xp:dojoAttribute name="label" value="A4 - Landscape"></xp:dojoAttribute>
+					<xp:dojoAttribute name="onClick">
+						<xp:this.value><![CDATA[#{javascript:"exportChartToPDF(\"A4L\", " + sessionScope.get("height" + compositeData.chartID) + ", " + sessionScope.get("width" + compositeData.chartID) + ", \"" + compositeData.type + "\", \"" + compositeData.chartID + "\")"}]]></xp:this.value>
+					</xp:dojoAttribute>
+				</xp:this.dojoAttributes>
+			</xp:div>
+			<xp:div dojoType="dijit.MenuItem">
+				<xp:this.dojoAttributes>
+					<xp:dojoAttribute name="label" value="Image Size"></xp:dojoAttribute>
+					<xp:dojoAttribute name="onClick">
+						<xp:this.value><![CDATA[#{javascript:"exportChartToPDF(\"ImageSize\", 0, 0, \"" + compositeData.type + "\", \"" + compositeData.chartID + "\")"}]]></xp:this.value>
+					</xp:dojoAttribute>
+				</xp:this.dojoAttributes>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+</xp:view>

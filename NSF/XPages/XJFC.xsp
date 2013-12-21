@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="false">
+	<xp:this.beforeRenderResponse><![CDATA[#{javascript:try {
+	var xjfc:org.openntf.javacharts.XJFC = new org.openntf.javacharts.XJFC();
+	xjfc.getChart();
+} catch(e) {
+	e.printStackTrace();
+}}]]></xp:this.beforeRenderResponse>
+</xp:view>

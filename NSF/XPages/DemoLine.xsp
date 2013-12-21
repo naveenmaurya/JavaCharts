@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom" pageTitle="Line Chart Demo"
+>
+	<xc:BALChart includeGeneratedDateTime="Do not show" orientation="Vertical" labelx="Period" labely="Market share in percentage"
+		title="Broswer Market Share" height="500" enableExport="true" width="750" type="Line" displayValues="true" legendPosition="Left"
+		gridLineColor="c0c0c0" backgroundColor="ffffff" yAxisTickUnit="Auto-generated" yAxisStartPoint="Auto-generated">
+		<xc:this.chartSeries><![CDATA[#{javascript:@DbLookup(@DbName(), "MiscellaneousData", "BrowserMarketShare", 2)}]]></xc:this.chartSeries>
+		<xc:this.chartValues><![CDATA[#{javascript:@DbLookup(@DbName(), "MiscellaneousData", "BrowserMarketShare", 4)}]]></xc:this.chartValues>
+		<xc:this.chartCategories><![CDATA[#{javascript:@Word(@DbLookup(@DbName(), "MiscellaneousData", "BrowserMarketShare", 3), ":", 2)}]]></xc:this.chartCategories>
+	</xc:BALChart>
+	<xp:br></xp:br>
+	<xc:BALChart orientation="Vertical" labelx="Period" labely="Market share in percentage" title="Broswer Market Share" height="500"
+		enableExport="true" width="750" type="Line 3D" displayValues="true" legendPosition="Bottom" gridLineColor="c0c0c0"
+		yAxisTickUnit="Auto-generated" backgroundImage="/openntf.jpg" backgroundImageAlignment="Center" backgroundImageFit="Do not fit"
+		yAxisStartPoint="Auto-generated">
+		<xc:this.chartSeries><![CDATA[#{javascript:@DbLookup(@DbName(), "MiscellaneousData", "BrowserMarketShare", 2)}]]></xc:this.chartSeries>
+		<xc:this.chartValues><![CDATA[#{javascript:@DbLookup(@DbName(), "MiscellaneousData", "BrowserMarketShare", 4)}]]></xc:this.chartValues>
+		<xc:this.chartCategories><![CDATA[#{javascript:@Word(@DbLookup(@DbName(), "MiscellaneousData", "BrowserMarketShare", 3), ":", 2)}]]></xc:this.chartCategories>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time]]></xc:this.includeGeneratedDateTime>
+	</xc:BALChart>
+</xp:view>

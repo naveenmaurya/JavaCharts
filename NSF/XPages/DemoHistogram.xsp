@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="Histogram Chart Demo"
+>
+	Height data were collected from a training class of 50 individuals.
+	This data is then used to create the histograms shown below.
+	<xp:br></xp:br>
+	<xp:text escape="true" id="cfRawObservations" style="font-weight:bold;color:rgb(0,0,255)">
+		<xp:this.value><![CDATA[#{javascript:var docUNID = @DbLookup(@DbName(), "MiscellaneousData", "HistogramData", 2, "[RETURNDOCUMENTUNIQUEID]");
+@Implode(database.getDocumentByUNID(docUNID).getItemValue("Field1"), ", ");}]]></xp:this.value>
+	</xp:text>
+	<xp:br></xp:br>
+	<xp:br></xp:br>
+	<xc:HistogramChart enableExport="true" height="400" title="Histogram (With one set of observation)" labelx="Intervals" labely="Frequency"
+		type="Frequency" width="500" displayValues="true" legendPosition="Bottom" gridLineColor="c0c0c0" backgroundColor="ffffff"
+		yAxisTickUnit="Auto-generated">
+		<xc:this.subTitle><![CDATA[This histogram has been divided into 9 bins betwen 65 and 74. Thus the individual bins are 65 to 66, 66 to 67,..... & 73 to 74.]]></xc:this.subTitle>
+		<xc:this.histogramData>
+			<xc:histogramData observationsLabel="Height" bins="9" binRangeUpper="74" binRangeLower="65">
+				<xc:this.observations><![CDATA[#{javascript:var docUNID = @DbLookup(@DbName(), "MiscellaneousData", "HistogramData", 2, "[RETURNDOCUMENTUNIQUEID]");
+database.getDocumentByUNID(docUNID).getItemValue("Field1");}]]></xc:this.observations>
+			</xc:histogramData>
+		</xc:this.histogramData>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time with time zone]]></xc:this.includeGeneratedDateTime>
+	</xc:HistogramChart>
+	<xp:br></xp:br>
+	<xp:br></xp:br>
+	The histogram shows data from two data sources.&#160;The first data is same as above while the second one is:<xp:br></xp:br><xp:text escape="true" id="cfRawObservations2" style="font-weight:bold;color:rgb(0,0,255)">
+		<xp:this.value><![CDATA[#{javascript:var docUNID = @DbLookup(@DbName(), "MiscellaneousData", "HistogramData1", 2, "[RETURNDOCUMENTUNIQUEID]");
+@Implode(database.getDocumentByUNID(docUNID).getItemValue("Field1"), ", ");}]]></xp:this.value>
+	</xp:text><xp:br></xp:br>
+	<xp:br></xp:br>
+	<xc:HistogramChart includeGeneratedDateTime="Do not show" enableExport="true" height="400" title="Histogram (With two sets of observation)"
+		labelx="Intervals" labely="Frequency" type="Frequency" width="750" displayValues="false" legendPosition="Right" gridLineColor="a0a0a0"
+		yAxisTickUnit="2" backgroundImage="/openntf.jpg" backgroundImageAlignment="North-East" backgroundImageFit="Do not fit">
+		<xc:this.subTitle><![CDATA[This histogram has two data sources and has been divided into 20 bins betwen 60 and 80. Thus the individual bins are 60 to 61, 61 to 62,..... & 79 to 80.]]></xc:this.subTitle>
+		<xc:this.histogramData>
+			<xc:histogramData observationsLabel="Height (Class 1)" bins="20" binRangeUpper="80" binRangeLower="60">
+				<xc:this.observations><![CDATA[#{javascript:var docUNID = @DbLookup(@DbName(), "MiscellaneousData", "HistogramData", 2, "[RETURNDOCUMENTUNIQUEID]");
+database.getDocumentByUNID(docUNID).getItemValue("Field1");}]]></xc:this.observations>
+			</xc:histogramData>
+			<xc:histogramData observationsLabel="Height (Class 2)" bins="20" binRangeUpper="80" binRangeLower="60">
+				<xc:this.observations><![CDATA[#{javascript:var docUNID = @DbLookup(@DbName(), "MiscellaneousData", "HistogramData1", 2, "[RETURNDOCUMENTUNIQUEID]");
+database.getDocumentByUNID(docUNID).getItemValue("Field1");}]]></xc:this.observations>
+			</xc:histogramData>
+		</xc:this.histogramData>
+	</xc:HistogramChart>
+</xp:view>

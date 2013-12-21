@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom" pageTitle="Bar Chart Demo">
+	<xc:BALChart orientation="Vertical" labelx="Period" labely="Market share in percentage" title="Browser Market Share - Comparison (Bar)"
+		height="500" enableExport="true" width="750" type="Bar" subTitle="Google's Chrome seems to eating into IE and Firefox market share"
+		displayValues="true" legendPosition="Left" gridLineColor="c0c0c0" includeGeneratedDateTime="Date" yAxisTickUnit="10"
+		backgroundImage="/openntf.jpg" backgroundImageAlignment="North" backgroundImageFit="Do not fit" yAxisStartPoint="Auto-generated">
+		<xc:this.chartSeries><![CDATA[#{javascript:var jul = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare01:Jul-10", 2);
+var jun = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare12:Jun-11", 2);
+jul.concat(jun);}]]></xc:this.chartSeries>
+		<xc:this.chartValues><![CDATA[#{javascript:var jul = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare01:Jul-10", 3);
+var jun = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare12:Jun-11", 3);
+jul.concat(jun);}]]></xc:this.chartValues>
+		<xc:this.chartCategories><![CDATA[#{javascript:var str = @Repeat("Jul-10,", 5) + @Repeat("Jun-11,", 5);
+@Trim(@Explode(str, ","));}]]></xc:this.chartCategories>
+	</xc:BALChart>
+	<xp:br></xp:br>
+	<xp:br></xp:br>
+	<xc:BALChart orientation="Horizontal" labelx="Period" labely="Market share in percentage" title="Browser Market Share - Comparison (Bar 3D)"
+		height="500" enableExport="true" width="750" type="Bar 3D" displayValues="false" legendPosition="Bottom" gridLineColor="c0c0c0"
+		yAxisTickUnit="Auto-generated" backgroundImage="/openntf.jpg" backgroundImageAlignment="Center" backgroundImageFit="Do not fit"
+		yAxisStartPoint="Auto-generated">
+		<xc:this.chartSeries><![CDATA[#{javascript:var str = @Repeat("Jul-10,", 5) + @Repeat("Jun-11,", 5);
+@Trim(@Explode(str, ","));}]]></xc:this.chartSeries>
+		<xc:this.chartValues><![CDATA[#{javascript:var jul = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare01:Jul-10", 3);
+var jun = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare12:Jun-11", 3);
+jul.concat(jun);}]]></xc:this.chartValues>
+		<xc:this.chartCategories><![CDATA[#{javascript:var jul = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare01:Jul-10", 2);
+var jun = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare12:Jun-11", 2);
+jul.concat(jun);}]]></xc:this.chartCategories>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time]]></xc:this.includeGeneratedDateTime>
+	</xc:BALChart>
+	<xp:br></xp:br>
+	<xp:br></xp:br>
+	<xc:BALChart orientation="Vertical" labelx="Period" labely="Market share in percentage"
+		title="Browser Market Share - Comparison (Bar Layered)" height="500" enableExport="true" width="500" type="Bar Layered" displayValues="true"
+		legendPosition="Right" gridLineColor="c0c0c0" backgroundColor="ffffff" yAxisTickUnit="3" yAxisStartPoint="Auto-generated">
+		<xc:this.chartSeries><![CDATA[#{javascript:var jul = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare01:Jul-10", 2);
+var jun = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare12:Jun-11", 2);
+jul.concat(jun);}]]></xc:this.chartSeries>
+		<xc:this.chartValues><![CDATA[#{javascript:var jul = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare01:Jul-10", 3);
+var jun = @DbLookup(@DbName(), "MiscellaneousData3", "BrowserMarketShare12:Jun-11", 3);
+jul.concat(jun);}]]></xc:this.chartValues>
+		<xc:this.chartCategories><![CDATA[#{javascript:var str = @Repeat("Jul-10,", 5) + @Repeat("Jun-11,", 5);
+@Trim(@Explode(str, ","));}]]></xc:this.chartCategories>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time with time zone]]></xc:this.includeGeneratedDateTime>
+	</xc:BALChart>
+</xp:view>

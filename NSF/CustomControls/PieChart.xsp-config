@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://www.ibm.com/xsp/custom</namespace-uri>
+    <default-prefix>xc</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <display-name>Pie Chart</display-name>
+    <component-type>PieChart</component-type>
+    <composite-name>PieChart</composite-name>
+    <composite-file>/PieChart.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>Java Charts</category>
+        <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
+&lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt;&#xd;
+    &lt;table cellspacing="0" cellpadding="3" border="0"&gt;&#xd;
+        &lt;tr&gt;&#xd;
+            &lt;td align="right"&gt;&#xd;
+                &lt;font size="4"&gt;&lt;b&gt;Pie Chart Custom Control&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;&#xd;
+                &lt;font size="3"&gt;@uthor: &lt;u&gt;Naveen Maurya&lt;/u&gt;&lt;br/&gt;&#xd;
+		javacharts.openntf.org&lt;/font&gt;&#xd;
+            &lt;/td&gt;&#xd;
+        &lt;/tr&gt;&#xd;
+    &lt;/table&gt;&#xd;
+&lt;/xp:view&gt;</render-markup>
+      </designer-extension>
+    </composite-extension>
+    <description>Pie chart</description>
+    <property>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+      <display-name>Title</display-name>
+      <description>The title for the chart.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>width</property-name>
+      <property-class>int</property-class>
+      <display-name>Width</display-name>
+      <description>Width of the chart in pixels.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>height</property-name>
+      <property-class>int</property-class>
+      <display-name>Height</display-name>
+      <description>Height of the chart in pixels.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>includeGeneratedDateTime</property-name>
+      <property-class>string</property-class>
+      <display-name>Include generated date time</display-name>
+      <property-extension>
+        <designer-extension>
+          <default-value>Date &amp; time</default-value>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Date&#xd;
+Date &amp; time&#xd;
+Date &amp; time with time zone&#xd;
+Do not show</editor-parameter>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Display the date and time on which this chart was generated. You can choose either to display only date or date with time or hide it completely.</description>
+    </property>
+    <property>
+      <property-name>chartItems</property-name>
+      <property-class>java.lang.Object</property-class>
+      <display-name>Items</display-name>
+      <property-extension>
+        <collection-property>false</collection-property>
+        <required>true</required>
+      </property-extension>
+      <description>Items which need to be included in the chart. These items are displayed in the legend of the chart. &#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: The number of elements in "chartItems" should be same as number of elements in "chartValues"</description>
+    </property>
+    <property>
+      <property-name>chartValues</property-name>
+      <property-class>java.lang.Object</property-class>
+      <display-name>Values</display-name>
+      <property-extension>
+        <collection-property>false</collection-property>
+        <required>true</required>
+      </property-extension>
+      <description>Values for the items which were entered in the property “chartItems” at the corresponding positions.&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: The number of elements in "chartItems" should be same as number of elements in "chartValues"</description>
+    </property>
+    <property>
+      <property-name>type</property-name>
+      <property-class>string</property-class>
+      <display-name>Chart type</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Pie&#xd;
+Pie 3D&#xd;
+Ring</editor-parameter>
+          <default-value>Pie</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Type of the chart to be displayed</description>
+    </property>
+    <property>
+      <property-name>enableExport</property-name>
+      <property-class>boolean</property-class>
+      <display-name>Enable export</display-name>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Whether links to export the chart to PDF should be visible. If set to true then links will be visible else it won’t.</description>
+    </property>
+    <property>
+      <property-name>displayPieValues</property-name>
+      <property-class>string</property-class>
+      <display-name>Display pie values</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Only values&#xd;
+Only percentage&#xd;
+Values and percentage&#xd;
+None</editor-parameter>
+          <default-value>Only percentage</default-value>
+        </designer-extension>
+      </property-extension>
+      <description>Indicates how the values / percentage should be displayed in the chart.</description>
+    </property>
+    <property>
+      <property-name>subTitle</property-name>
+      <property-class>string</property-class>
+      <display-name>Sub title</display-name>
+      <property-extension>
+        <required>false</required>
+      </property-extension>
+      <description>A short description of the chart, appears below the title.</description>
+    </property>
+    <property>
+      <property-name>legendPosition</property-name>
+      <property-class>string</property-class>
+      <display-name>Legend position</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Bottom&#xd;
+Left&#xd;
+Right&#xd;
+Top&#xd;
+Hide Legend</editor-parameter>
+          <default-value>Bottom</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Position of the legend in the chart. It can be placed at bottom, left, right, top or can be hidden.</description>
+    </property>
+  </composite-component>
+</faces-config>

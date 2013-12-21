@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" pageTitle="Scatter Chart Demo"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+>
+	<xc:ScatterChart enableExport="true" legendPosition="Bottom" orientation="Vertical" height="500" labely="Number of ice-creams sold"
+		title="Scatter Chart Demo" width="500" scatterDisplay="Shapes" gridLineColor="c0c0c0" labelx="Temperature (°C) "
+		yAxisTickUnit="Auto-generated" backgroundImage="/openntf.jpg" yAxisStartPoint="Auto-generated" xAxisStartPoint="Auto-generated">
+		<xc:this.scatterData>
+			<xc:scatterData scatterDataLabel="Temperature - Ice cream"
+				xPoints="#{javascript:new Array(21, 26, 15, 24, 18, 29, 20, 27, 23, 17, 30, 19);}"
+				yPoints="#{javascript:new Array(70, 86, 50, 80, 58, 96, 66, 92, 74, 54, 100, 62);}">
+			</xc:scatterData>
+		</xc:this.scatterData>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time with time zone]]></xc:this.includeGeneratedDateTime>
+	</xc:ScatterChart>
+</xp:view>

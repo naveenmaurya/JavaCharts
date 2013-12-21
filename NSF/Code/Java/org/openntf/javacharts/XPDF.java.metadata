@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="65257AD900209E97" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1ca" sequence="11" unid="E76781522279367C65257AB40043BBDD">
+<created><datetime>20121112T174950,05+0530</datetime></created>
+<modified><datetime>20121219T112619,06+0530</datetime></modified>
+<revised><datetime>20121219T112517,90+0530</datetime></revised>
+<lastaccessed><datetime>20121219T112619,06+0530</datetime></lastaccessed>
+<addedtofile><datetime>20121219T112619,06+0530</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Naveen/O=Naveen</name></updatedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>org/openntf/javacharts/XPDF.java</text></item>
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>org/openntf/javacharts/XPDF.java</text></item>
+
+</note>

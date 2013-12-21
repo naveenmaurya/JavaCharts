@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://www.ibm.com/xsp/custom
+		</namespace-uri>
+    <default-prefix>xc</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <display-name>Gantt Chart</display-name>
+    <component-type>GanttChart</component-type>
+    <composite-name>GanttChart</composite-name>
+    <composite-file>/GanttChart.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <category>Java Charts</category>
+        <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
+&lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&gt;&#xd;
+    &lt;table cellspacing="0" cellpadding="3" border="0"&gt;&#xd;
+        &lt;tr&gt;&#xd;
+            &lt;td align="right"&gt;&#xd;
+                &lt;font size="4"&gt;&lt;b&gt;Gantt Chart Custom Control&lt;/b&gt;&lt;/font&gt;&lt;br/&gt;&#xd;
+                &lt;font size="3"&gt;@uthor: &lt;u&gt;Naveen Maurya&lt;/u&gt;&lt;br/&gt;&#xd;
+		javacharts.openntf.org&lt;/font&gt;&#xd;
+            &lt;/td&gt;&#xd;
+        &lt;/tr&gt;&#xd;
+    &lt;/table&gt;&#xd;
+&lt;/xp:view&gt;</render-markup>
+      </designer-extension>
+    </composite-extension>
+    <description>Gantt chart</description>
+    <property>
+      <property-name>title</property-name>
+      <property-class>string</property-class>
+      <display-name>Title</display-name>
+      <description>The title for the chart.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>width</property-name>
+      <property-class>int</property-class>
+      <display-name>Width</display-name>
+      <description>Width of the chart in pixels.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>height</property-name>
+      <property-class>int</property-class>
+      <display-name>Height</display-name>
+      <description>Height of the chart in pixels.</description>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>includeGeneratedDateTime</property-name>
+      <property-class>string</property-class>
+      <display-name>Include generated date time</display-name>
+      <property-extension>
+        <designer-extension>
+          <default-value>Date &amp; time</default-value>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Date&#xd;
+Date &amp; time&#xd;
+Date &amp; time with time zone&#xd;
+Do not show</editor-parameter>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Display the date and time on which this chart was generated. You can choose either to display only date or date with time ot hide it completely.</description>
+    </property>
+    <property>
+      <property-name>enableExport</property-name>
+      <property-class>boolean</property-class>
+      <display-name>Enable export</display-name>
+      <property-extension>
+        <designer-extension>
+          <default-value>true</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Whether links to export the chart to PDF should be visible. If set to true then links will be visible else it won’t.</description>
+    </property>
+    <property>
+      <property-name>labelX</property-name>
+      <property-class>string</property-class>
+      <display-name>X-axis label</display-name>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Label to be shown on the X-axis.</description>
+    </property>
+    <property>
+      <property-name>labelY</property-name>
+      <property-class>string</property-class>
+      <display-name>Y-axis label</display-name>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Label to be shown on the Y-axis.</description>
+    </property>
+    <property>
+      <property-name>taskCompletionData</property-name>
+      <property-class>boolean</property-class>
+      <display-name>Task completion data</display-name>
+      <property-extension>
+        <designer-extension>
+          <default-value>false</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Whether completion data is to be entered for each of the task in individual "taskSeries". If true then a new list "taskPercentCompletionList" will be visible.</description>
+    </property>
+    <property>
+      <property-name>subTitle</property-name>
+      <property-class>string</property-class>
+      <display-name>Sub title</display-name>
+      <description>A short description of the chart, appears below the title.</description>
+    </property>
+    <property>
+      <property-name>displayStartEndDates</property-name>
+      <property-class>boolean</property-class>
+      <display-name>Display start and end dates</display-name>
+      <description>Determines whether start and end dates will be displayed on top of each task or not.</description>
+      <property-extension>
+        <designer-extension>
+          <default-value>false</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>legendPosition</property-name>
+      <property-class>string</property-class>
+      <display-name>Legend position</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Bottom&#xd;
+Left&#xd;
+Right&#xd;
+Top&#xd;
+Hide Legend</editor-parameter>
+          <default-value>Bottom</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Position of the legend in the chart. It can be placed at bottom, left, right, top or can be hidden.</description>
+    </property>
+    <property>
+      <property-name>backgroundColor</property-name>
+      <property-class>string</property-class>
+      <display-name>Background color</display-name>
+      <description>Background color of the chart. It needs to be expressed in hexadecimal form. For e.g. FFFFFF.</description>
+      <property-extension>
+        <required>false</required>
+        <designer-extension>
+          <default-value>ffffff</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property>
+      <property-name>gridLineColor</property-name>
+      <property-class>string</property-class>
+      <display-name>Grid line color</display-name>
+      <description>Grid line color of the chart. It needs to be expressed in hexadecimal form. For e.g. FFFFFF.</description>
+      <property-extension>
+        <required>true</required>
+        <designer-extension>
+          <default-value>c0c0c0</default-value>
+        </designer-extension>
+      </property-extension>
+    </property>
+    <property-type>
+      <property-name>taskSeries</property-name>
+      <property>
+        <property-name>taskSeriesName</property-name>
+        <property-class>string</property-class>
+        <display-name>Task series name</display-name>
+        <property-extension>
+          <required>true</required>
+        </property-extension>
+        <description>Name of task series.  This name appears in the legend of the chart.</description>
+      </property>
+      <property>
+        <property-name>taskNameList</property-name>
+        <property-class>java.lang.Object</property-class>
+        <display-name>Task name list</display-name>
+        <property-extension>
+          <required>true</required>
+        </property-extension>
+        <description>Array of names of tasks in the series. This value appears in the Y-axis of the chart.&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: Number of elements in "taskNameList", "taskStartDateList", "taskEndDateList", "taskPercentCompletionList" (if visible) should be same.</description>
+      </property>
+      <display-name>Task series</display-name>
+      <property-extension>
+        <container-class>java.util.Collection
+				</container-class>
+        <collection-property>true</collection-property>
+      </property-extension>
+      <property>
+        <property-name>taskStartDateList</property-name>
+        <property-class>java.lang.Object</property-class>
+        <display-name>Start date list</display-name>
+        <property-extension>
+          <required>true</required>
+        </property-extension>
+        <description>Array of start dates for the tasks corresponding to the list defined in the property “taskNameList”. The array should be of either java.util.Date or lotus.domino.DateTime&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: Number of elements in "taskNameList", "taskStartDateList", "taskEndDateList", "taskPercentCompletionList" (if visible) should be same.</description>
+      </property>
+      <property>
+        <property-name>taskEndDateList</property-name>
+        <property-class>java.lang.Object</property-class>
+        <display-name>End date list</display-name>
+        <property-extension>
+          <required>true</required>
+        </property-extension>
+        <description>Array of end dates for the tasks corresponding to the list defined in the property “taskNameList”. The array should be of either java.util.Date or lotus.domino.DateTime&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: Number of elements in "taskNameList", "taskStartDateList", "taskEndDateList", "taskPercentCompletionList" (if visible) should be same.</description>
+      </property>
+      <property>
+        <property-name>taskPercentCompletionList</property-name>
+        <property-class>java.lang.Object</property-class>
+        <display-name>Percent completion list</display-name>
+        <property-extension>
+          <designer-extension>
+            <visible>parent.taskCompletionData</visible>
+            <validation-formula/>
+          </designer-extension>
+          <required>false</required>
+        </property-extension>
+        <description>Array of percentage completion for the tasks corresponding to the list defined in the property “taskNameList”.&#xd;
+&#xd;
+For e.g.&#xd;
+new Array(...)&#xd;
+@Explode(...)&#xd;
+@DbColumn(...)&#xd;
+@DbLookup(...)&#xd;
+Any subclass of java.util.Collection like Vector, ArrayList, etc.&#xd;
+&#xd;
+NOTE: Number of elements in "taskNameList", "taskStartDateList", "taskEndDateList", "taskPercentCompletionList" (if visible) should be same.</description>
+      </property>
+      <description>This group consists of properties required for a task - name, task name list, task start date list, task end date list and task percent completion list.</description>
+    </property-type>
+    <property>
+      <property-name>backgroundImage</property-name>
+      <property-class>string</property-class>
+      <display-name>Background Image</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.ImagePicker</editor>
+        </designer-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Select the background image to be displayed in chart.&#xd;
+&#xd;
+If this property is set then "backgroundColor" property will not have any effect.</description>
+    </property>
+    <property>
+      <property-name>backgroundImageAlignment</property-name>
+      <property-class>string</property-class>
+      <display-name>Background Image Alignment</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Center&#xd;
+East&#xd;
+North&#xd;
+North-East&#xd;
+North-West&#xd;
+South&#xd;
+South-East&#xd;
+South-West&#xd;
+West</editor-parameter>
+        </designer-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Select where you want the background image to be aligned.&#xd;
+&#xd;
+This property will not have any effect if "backgroundImage" property is not set.</description>
+    </property>
+    <property>
+      <property-name>backgroundImageFit</property-name>
+      <property-class>string</property-class>
+      <display-name>Background Image Fit</display-name>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>Do not fit&#xd;
+Fit entire chart&#xd;
+Fit horizontally&#xd;
+Fit vertically</editor-parameter>
+        </designer-extension>
+        <required>false</required>
+      </property-extension>
+      <description>Select how you want the background image to be fit on the chart.&#xd;
+&#xd;
+This property will not have any effect if "backgroundImage" property is not set.</description>
+    </property>
+  </composite-component>
+</faces-config>

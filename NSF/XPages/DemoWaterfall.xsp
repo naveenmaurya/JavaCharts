@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="Waterfall Chart Demo"
+>
+	<xc:BALChart orientation="Vertical" height="500" enableExport="true" width="550" type="Waterfall" displayValues="true"
+		title="Company Profit (in $ K)" labelx="" labely="" legendPosition="Hide Legend" gridLineColor="c0c0c0" yAxisTickUnit="25"
+		backgroundColor="ffffff" yAxisStartPoint="Auto-generated">
+		<xc:this.chartValues><![CDATA[#{javascript:@DbLookup(@DbName(), "MiscellaneousData", "WaterfallChart", 3);}]]></xc:this.chartValues>
+		<xc:this.chartCategories><![CDATA[#{javascript:@Right(@DbLookup(@DbName(), "MiscellaneousData", "WaterfallChart", 2), ">");}]]></xc:this.chartCategories>
+		<xc:this.chartSeries><![CDATA[#{javascript:var str = @Repeat("Jul-11,", 5);
+@Trim(@Explode(str, ","));}]]></xc:this.chartSeries>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time with time zone]]></xc:this.includeGeneratedDateTime>
+	</xc:BALChart>
+</xp:view>

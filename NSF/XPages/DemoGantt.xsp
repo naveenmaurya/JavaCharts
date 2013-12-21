@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="Gantt Chart Demo"
+>
+	<xc:GanttChart enableExport="true" height="500" labelX="Tasks" labelY="Date" title="Gantt Chart - Scheduled vs. Actual"
+		taskCompletionData="false" width="750" displayStartEndDates="false" legendPosition="Bottom" gridLineColor="c0c0c0"
+		backgroundImage="/openntf.jpg" backgroundImageAlignment="East" backgroundImageFit="Do not fit">
+		<xc:this.taskSeries>
+			<xc:taskSeries taskSeriesName="Scheduled">
+				<xc:this.taskEndDateList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Scheduled", 4)}]]></xc:this.taskEndDateList>
+				<xc:this.taskStartDateList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Scheduled", 3)}]]></xc:this.taskStartDateList>
+				<xc:this.taskNameList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Scheduled", 2)}]]></xc:this.taskNameList>
+			</xc:taskSeries>
+		</xc:this.taskSeries>
+		<xc:this.taskSeries>
+			<xc:taskSeries taskSeriesName="Actual">
+				<xc:this.taskEndDateList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Actual", 4)}]]></xc:this.taskEndDateList>
+				<xc:this.taskStartDateList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Actual", 3)}]]></xc:this.taskStartDateList>
+				<xc:this.taskNameList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Actual", 2)}]]></xc:this.taskNameList>
+			</xc:taskSeries>
+		</xc:this.taskSeries>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time]]></xc:this.includeGeneratedDateTime>
+	</xc:GanttChart>
+	<xp:br></xp:br>
+	<xp:br></xp:br>
+	<xc:GanttChart enableExport="true" height="500" labelX="Tasks"
+		labelY="Date" title="Gantt Chart - Percent Completion"
+		taskCompletionData="true" width="750" gridLineColor="c0c0c0"
+		backgroundColor="ffffff"
+		subTitle="ABC Reporting System is currently in development phase and is 40% complete"
+		displayStartEndDates="false" legendPosition="Bottom"
+	>
+		<xc:this.taskSeries>
+			<xc:taskSeries taskSeriesName="ABC Reporting System">
+				<xc:this.taskEndDateList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Percent Completion", 4)}]]></xc:this.taskEndDateList>
+				<xc:this.taskStartDateList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Percent Completion", 3)}]]></xc:this.taskStartDateList>
+				<xc:this.taskNameList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Percent Completion", 2)}]]></xc:this.taskNameList>
+				<xc:this.taskPercentCompletionList><![CDATA[#{javascript:@DbLookup(@DbName(), "GanttData", "Percent Completion", 5)}]]></xc:this.taskPercentCompletionList>
+			</xc:taskSeries>
+		</xc:this.taskSeries>
+		<xc:this.includeGeneratedDateTime><![CDATA[Date & time with time zone]]></xc:this.includeGeneratedDateTime>
+	</xc:GanttChart>
+</xp:view>
